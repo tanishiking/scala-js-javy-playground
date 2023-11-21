@@ -109,3 +109,6 @@ Caused by:
 ```
 
 because Scala's `Future` would be translated into `Promise` (or `setTimeout`) in JS.
+
+## experimental_event_loop
+[Support for async / await · Issue #387 · bytecodealliance/javy](https://github.com/bytecodealliance/javy/issues/387)
