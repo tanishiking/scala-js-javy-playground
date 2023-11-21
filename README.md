@@ -1,5 +1,8 @@
 # scala-js-javy-playground
 
+- [bytecodealliance/javy: JS to WebAssembly toolchain](https://github.com/bytecodealliance/javy)
+- [scala-js/scala-js: Scala.js, the Scala to JavaScript compiler](https://github.com/scala-js/scala-js)
+
 Scala --(scala.js)--> JS --(javy)--> WASM
 
 ## Hello World
@@ -27,7 +30,7 @@ object Hello {
 ```sh
 $ scala-cli package --js Hello.scala -o build/hello.js --force
 
-$ ~/javy compile build/hello.js -o destination/hello.wasm
+$ javy compile build/hello.js -o destination/hello.wasm
 
 $ wasmtime destination/hello.wasm
 Hello World from Scala.js
@@ -94,7 +97,7 @@ object Promise {
 
 ```sh
 $ scala-cli package --js Promise.scala -o build/promise.js --force
-$ ~/javy compile build/promise.js -o destination/promise.wasm
+$ javy compile build/promise.js -o destination/promise.wasm
 $ wasmtime destination/promise.wasm
 Error while running JS: Adding tasks to the event queue is not supported
 Error: failed to run main module `destination/promise.wasm`
@@ -112,3 +115,14 @@ because Scala's `Future` would be translated into `Promise` (or `setTimeout`) in
 
 ## experimental_event_loop
 [Support for async / await · Issue #387 · bytecodealliance/javy](https://github.com/bytecodealliance/javy/issues/387)
+
+Build `javy` with an `experimental_event_loop` feature flag, and install `javy-cli` globally.
+
+```sh
+$ cargo build --features experimental_event_loop -p javy-core --target=wasm32-wasi -r
+$ cargo install --path crates/cli
+
+$ javy compile build/promise.js -o destination/promise.wasm
+$ wasmtime destination/promise.wasm
+some data!
+```
