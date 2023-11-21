@@ -1,0 +1,4 @@
+.bsp
+.scala-build
+build/*.js
+destination/*.wasm
