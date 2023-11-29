@@ -2,3 +2,6 @@
 .scala-build
 build/*.js
 destination/*.wasm
+
+.metals
+.vscode

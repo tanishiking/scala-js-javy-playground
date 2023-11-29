@@ -12,19 +12,13 @@ Scala --(scala.js)--> JS --(javy)--> WASM
 import scala.scalajs.js
 import java.lang.Throwable
 
-object Hello {
-  def main(args: Array[String]): Unit = {
+object Hello:
+  def main(args: Array[String]): Unit =
     val console = js.Dynamic.global.console
-    val msg = "Hello World from Scala.js"
-    console.log(msg)
-    try {
-        throw new Error("test")
-    } catch {
-        case e: Throwable =>
-            println(e)
-    }
-  }
-}
+    try
+      throw new Error("test")
+    catch
+      case e: Throwable => console.log(e.getMessage)
 ```
 
 ```sh
@@ -82,17 +76,12 @@ import scala.concurrent._
 import scala.util.Success
 import concurrent.ExecutionContext.Implicits.global
 
-object Promise {
-  def fetchData(): Future[String] = Future {
-    "some data!"
-  }
-  def main(args: Array[String]): Unit = {
+object Promise:
+  def fetchData(): Future[String] = Future { "some data!" }
+  def main(args: Array[String]): Unit =
     val f = fetchData()
-    f.onComplete { case Success(data) =>
-      println(data)
-    }
-  }
-}
+    f.onComplete:
+      case Success(data) => println(data)
 ```
 
 ```sh
