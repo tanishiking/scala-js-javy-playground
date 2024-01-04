@@ -31,7 +31,7 @@ java.lang.Error: test
 ```
 
 
-## Event loop is not supported
+## Event loop support is experimental
 [The event loop - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop)
 
 > Similarly, we haven’t enabled the event loop in the QuickJS instance that Javy uses. That means that async/await, Promises, and functions like setTimeout are syntactically available but never trigger their callbacks. We want to enable this functionality in Javy, but have to clear up a couple of open questions, like if and how to integrate the event loop with the host system or how to implement setTimeout() from inside a WASI environment.
