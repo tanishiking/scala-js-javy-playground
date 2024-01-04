@@ -27,7 +27,6 @@ $ scala-cli package --js Hello.scala -o build/hello.js --force
 $ javy compile build/hello.js -o destination/hello.wasm
 
 $ wasmtime destination/hello.wasm
-Hello World from Scala.js
 java.lang.Error: test
 ```
 
